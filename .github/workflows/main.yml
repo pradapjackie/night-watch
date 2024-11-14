@@ -1,0 +1,43 @@
+name: Nightwatch UI Tests
+
+on: 
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    # Set up Chrome service and install dependencies
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Install Chrome for headless testing
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y google-chrome-stable
+
+      - name: Run Nightwatch tests
+        env:
+          CI: true
+        run: |
+          npx nightwatch --env chrome
+
+    # Uploading Nightwatch reports as artifacts (optional)
+      - name: Upload Nightwatch Reports
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: nightwatch-reports
+          path: reports/
