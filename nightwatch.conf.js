@@ -62,15 +62,9 @@ module.exports = {
     chrome: {
       desiredCapabilities: {
         browserName: 'chrome',
-        'goog:chromeOptions': {
-          // More info on Chromedriver: https://sites.google.com/a/chromium.org/chromedriver/
-          args: [
-            '--no-sandbox',
-            '--ignore-certificate-errors',
-            '--allow-insecure-localhost',
-            '--headless=new'
-          ]
-        }
+        chromeOptions: {
+          args: ['--headless', '--no-sandbox', '--disable-gpu'],
+        },
       },
 
       webdriver: {
