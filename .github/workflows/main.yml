@@ -32,7 +32,7 @@ jobs:
         env:
           CI: true
         run: |
-          npx nightwatch --env chrome
+          npx run test
 
     # Uploading Nightwatch reports as artifacts (optional)
       - name: Upload Nightwatch Reports
