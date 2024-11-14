@@ -1,6 +1,6 @@
 name: Nightwatch UI Tests
 
-on: 
+on:
   push:
     branches:
       - main
@@ -10,7 +10,6 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
-    # Set up Chrome service and install dependencies
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -32,9 +31,9 @@ jobs:
         env:
           CI: true
         run: |
-          npx run test
+          npx nightwatch
 
-    # Uploading Nightwatch reports as artifacts (optional)
+      # Upload Nightwatch reports as artifacts (optional)
       - name: Upload Nightwatch Reports
         uses: actions/upload-artifact@v3
         if: always()
