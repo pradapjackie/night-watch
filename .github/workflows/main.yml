@@ -30,8 +30,7 @@ jobs:
       - name: Run Nightwatch tests
         env:
           CI: true
-        run: |
-          npx nightwatch
+        run: npx nightwatch ./nightwatch/examples
 
       # Upload Nightwatch reports as artifacts (optional)
       - name: Upload Nightwatch Reports
