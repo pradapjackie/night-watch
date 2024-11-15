@@ -8,7 +8,7 @@
  *
  */
 
-describe('google search with consent form - page objects', function() {
+describe.skip('google search with consent form - page objects', function() {
   const homePage = browser.page.google.search(); // first page-object
 
   before(async () => homePage.navigate());

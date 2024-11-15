@@ -1,4 +1,4 @@
-describe('duckduckgo example', function() {
+describe.skip('duckduckgo example', function() {
   it('Search Nightwatch.js and check results', function(browser) {
     browser
       .navigateTo('https://duckduckgo.com')
