@@ -49,7 +49,10 @@ module.exports = {
       },
 
       desiredCapabilities: {
-        browserName: 'chrome'
+        browserName: 'chrome',
+        chromeOptions: {
+          args: ['--headless', '--no-sandbox', '--disable-gpu'],
+        },
       },
       
       webdriver: {
@@ -59,22 +62,22 @@ module.exports = {
       
     },
     
-    chrome: {
-      desiredCapabilities: {
-        browserName: 'chrome',
-        chromeOptions: {
-          args: ['--headless', '--no-sandbox', '--disable-gpu'],
-        },
-      },
-
-      webdriver: {
-        start_process: true,
-        server_path: '',
-        cli_args: [
-          // --verbose
-        ]
-      }
-    },
+    // chrome: {
+    //   desiredCapabilities: {
+    //     browserName: 'chrome',
+    //     chromeOptions: {
+    //       args: ['--headless', '--no-sandbox', '--disable-gpu'],
+    //     },
+    //   },
+    //
+    //   webdriver: {
+    //     start_process: true,
+    //     server_path: '',
+    //     cli_args: [
+    //       // --verbose
+    //     ]
+    //   }
+    // },
     
   },
   
